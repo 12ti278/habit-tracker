@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fbf8f2;
+  --color-cream-deep: #f4eee3;
+  --color-ink: #4a4a4a;
+  --color-ink-soft: #7a7a7a;
+  --color-ink-muted: #b0b0b0;
+  --color-line: #ece7dd;
+  --color-accent: #c9a87c;
+  --color-accent-strong: #b08a5a;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  /* 极淡低饱和米杏径向渐变，微弱不干扰内容 */
+  background-image: radial-gradient(
+      1200px 800px at 50% -12%,
+      rgba(201, 168, 124, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 720px at 108% 112%,
+      rgba(208, 154, 166, 0.08),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 700px at -8% 108%,
+      rgba(143, 166, 190, 0.08),
+      transparent 55%
+    );
+  background-attachment: fixed;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* 毛玻璃卡片：半透白 85% + 模糊 + 16px 圆角 + 轻柔阴影，无硬黑边框 */
+.glass {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 24px rgba(60, 50, 40, 0.06);
+}
