@@ -4,6 +4,9 @@ import { DashboardClient } from "./dashboard-client";
 import type { CheckinSummary, HabitRow } from "@/types/habit";
 import type { HabitTag, Tag } from "@/types/tag";
 
+// Next.js 16：/dashboard 读取 cookies() + 数据库，属动态路由，退出静态壳校验
+export const instant = false;
+
 export default async function DashboardPage() {
   const supabase = await createClient();
 

@@ -37,7 +37,7 @@ habit-tracker/
 ├── proxy.ts                      # Next 16 的 middleware：会话刷新 + 路由跳转
 ├── app/
 │   ├── layout.tsx / globals.css  # 根布局 + Tailwind v4 主题 / .glass 毛玻璃
-│   ├── page.tsx                  # / （仍是样板页，见「已知待办」）
+│   ├── page.tsx                  # / （重定向到 /login）
 │   ├── auth/actions.ts           # login / signup / logout（Server Actions）
 │   ├── login/page.tsx            # 登录（useActionState）
 │   ├── register/page.tsx         # 注册
@@ -108,7 +108,7 @@ cd /c/Users/OMEN/habit-tracker && npm run lint
 
 ## 7. 已知待办 / 坑
 
-- `app/page.tsx`（`/` 根路由）仍是 Next 样板页，未重定向。
+- `app/page.tsx`（`/` 根路由）已重定向到 `/login`。
 - `.env.local` 的 `NEXT_PUBLIC_SUPABASE_URL` **不要带 `/rest/v1/` 后缀**（这是之前注册报错的根因）。
 - 旧的 emoji 图标已废弃：现在 `habits.icon` 存 lucide 的 key（如 `droplets`），未知 key 会回退成默认「通用」图标。
 - 从零建库需要依次跑：`00001_init.sql`（在 defense-simulator 里，只读）→ `m2_setup.sql`（Realtime）→ `m5_setup.sql`（最新列/RPC/备注表）。详见 `docs/BUILD.md`。

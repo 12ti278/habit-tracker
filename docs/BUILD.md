@@ -71,7 +71,7 @@ npm run dev
 
 访问 `http://localhost:3000`。
 
-> 注意：根路由 `/` 目前仍是 Next 样板页。请直接访问 `/login` 注册 / 登录，登录后跳转 `/dashboard`。
+> 根路由 `/` 会自动重定向到 `/login`，登录后进入 `/dashboard`。
 
 ---
 
@@ -103,5 +103,5 @@ npm start
 | 注册报错 | `NEXT_PUBLIC_SUPABASE_URL` 带了 `/rest/v1/` | 去掉后缀，只留到 `.supabase.co` |
 | 登录后无限跳转 / 跳回登录 | 未跑 `m2_setup.sql` 或 proxy 缓存 | 确认第 4 步 SQL 都执行过，重启 dev |
 | 打卡不实时刷新 | Realtime 未启用 | 检查 `m2_setup.sql` 是否执行、`supabase_realtime` 发布是否含三表 |
-| 首页是 Next 样板 | 根路由未接跳转 | 这是已知待办，直接访问 `/login` |
+| 首页空白或跳转异常 | 根路由重定向失效 | 检查 `app/page.tsx` 是否 `redirect("/login")` |
 | 未知图标显示成通用勾 | `habits.icon` 存的 key 不在 `lib/icons.ts` | 改数据或补 `ICON_OPTIONS` |
